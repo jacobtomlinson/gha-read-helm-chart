@@ -1,0 +1,18 @@
+name: Integration Test
+on: [push, pull_request]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Self test
+        id: selftest
+        uses: jacobtomlinson/gha-read-helm-chart@master
+        with:
+          path: tests/example
+      - name: Check outputs
+        run: |
+          test "${{ steps.selftest.outputs.name }}" == "example"
+          test "${{ steps.selftest.outputs.apiVersion }}" == "v1"
+          test "${{ steps.selftest.outputs.version }}" == "0.1.0"
+          test "${{ steps.selftest.outputs.icon }}" == ""

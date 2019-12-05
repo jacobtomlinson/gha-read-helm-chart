@@ -1,0 +1,37 @@
+name: "Read Helm Chart"
+description: "Read a Helm Chart's `Chart.yaml` file and expose the values as outputs."
+author: "Jacob Tomlinson"
+inputs:
+  path:
+    description: "Path to the helm chart"
+    required: true
+outputs:
+  apiVersion:
+    description: The chart API version (always set)
+  name:
+    description: The name of the chart (always set)
+  version:
+    description: A SemVer 2 version (always set)
+  kubeVersion:
+    description: A SemVer range of compatible Kubernetes versions (optional)
+  description:
+    description: A single-sentence description of this project (optional)
+  type:
+    description: It is the type of chart (optional)
+  keywords:
+    description: A list of keywords about this project (optional)
+  home:
+    description: The URL of this project's home page (optional)
+  sources:
+    description: A list of URLs to source code for this project (optional)
+  repository:
+    description: The repository URL ("https://example.com/charts") (optional)
+  icon:
+    description: A URL to an SVG or PNG image to be used as an icon (optional).
+  appVersion:
+    description: The version of the app that this contains (optional).
+  deprecated:
+    description: Whether this chart is deprecated (optional)
+runs:
+  using: "docker"
+  image: "Dockerfile"
