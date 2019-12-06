@@ -6,6 +6,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"strings"
 
 	"gopkg.in/yaml.v2"
 )
@@ -19,19 +20,19 @@ func check(e error) {
 }
 
 type Chart struct {
-	ApiVersion  string `yaml:"apiVersion"`
-	Name        string `yaml:"name"`
-	Version     string `yaml:"version"`
-	KubeVersion string `yaml:"kubeVersion"`
-	Description string `yaml:"description"`
-	Type        string `yaml:"type"`
-	Keywords    string `yaml:"keywords"`
-	Home        string `yaml:"home"`
-	Sources     string `yaml:"sources"`
-	Repository  string `yaml:"repository"`
-	Icon        string `yaml:"icon"`
-	AppVersion  string `yaml:"appVersion"`
-	Deprecated  bool   `yaml:"deprecated"`
+	ApiVersion  string   `yaml:"apiVersion"`
+	Name        string   `yaml:"name"`
+	Version     string   `yaml:"version"`
+	KubeVersion string   `yaml:"kubeVersion"`
+	Description string   `yaml:"description"`
+	Type        string   `yaml:"type"`
+	Keywords    string   `yaml:"keywords"`
+	Home        string   `yaml:"home"`
+	Sources     []string `yaml:"sources"`
+	Repository  string   `yaml:"repository"`
+	Icon        string   `yaml:"icon"`
+	AppVersion  string   `yaml:"appVersion"`
+	Deprecated  bool     `yaml:"deprecated"`
 }
 
 func main() {
@@ -53,7 +54,7 @@ func main() {
 	fmt.Println(fmt.Sprintf(`::set-output name=type::%s`, chart.Type))
 	fmt.Println(fmt.Sprintf(`::set-output name=keywords::%s`, chart.Keywords))
 	fmt.Println(fmt.Sprintf(`::set-output name=home::%s`, chart.Home))
-	fmt.Println(fmt.Sprintf(`::set-output name=sources::%s`, chart.Sources))
+	fmt.Println(fmt.Sprintf(`::set-output name=sources::%s`, strings.Join(chart.Sources[:], ",")))
 	fmt.Println(fmt.Sprintf(`::set-output name=repository::%s`, chart.Repository))
 	fmt.Println(fmt.Sprintf(`::set-output name=icon::%s`, chart.Icon))
 	fmt.Println(fmt.Sprintf(`::set-output name=appVersion::%s`, chart.AppVersion))
