@@ -26,7 +26,7 @@ type Chart struct {
 	KubeVersion string   `yaml:"kubeVersion"`
 	Description string   `yaml:"description"`
 	Type        string   `yaml:"type"`
-	Keywords    string   `yaml:"keywords"`
+	Keywords    []string `yaml:"keywords"`
 	Home        string   `yaml:"home"`
 	Sources     []string `yaml:"sources"`
 	Repository  string   `yaml:"repository"`
