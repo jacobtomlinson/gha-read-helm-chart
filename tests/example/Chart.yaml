@@ -5,3 +5,7 @@ name: example
 version: 0.1.0
 sources:
  - https://github.com/jacobtomlinson/gha-read-helm-chart
+dependencies:
+  - name: example-dep
+    version: 0.2.0
+    repository: https://example.com/charts/example-dep
