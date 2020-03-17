@@ -29,6 +29,7 @@ type Chart struct {
 	Keywords    []string `yaml:"keywords"`
 	Home        string   `yaml:"home"`
 	Sources     []string `yaml:"sources"`
+	Dependencies []*Chart `yaml:"dependencies"`
 	Repository  string   `yaml:"repository"`
 	Icon        string   `yaml:"icon"`
 	AppVersion  string   `yaml:"appVersion"`
@@ -59,4 +60,9 @@ func main() {
 	fmt.Println(fmt.Sprintf(`::set-output name=icon::%s`, chart.Icon))
 	fmt.Println(fmt.Sprintf(`::set-output name=appVersion::%s`, chart.AppVersion))
 	fmt.Println(fmt.Sprintf(`::set-output name=deprecated::%t`, chart.Deprecated))
+
+	for _, dep := range chart.Dependencies{
+		fmt.Println(fmt.Sprintf(`::set-output name=dependencies.%s.version::%s`, dep.Name, dep.Version))
+		fmt.Println(fmt.Sprintf(`::set-output name=dependencies.%s.repository::%s`, dep.Name, dep.Repository))
+	}
 }
