@@ -45,6 +45,8 @@ jobs:
 | `keywords`  | A list of keywords about this project _(optional)_ |
 | `home`  | The URL of this project's home page _(optional)_ |
 | `sources`  | A list of URLs to source code for this project _(optional)_ |
+| `depenencies.{name}.version`  | Version of dependency `{name}` _(optional)_ |
+| `depenencies.{name}.repository`  | Repository URL of dependency `{name}` _(optional)_ |
 | `repository`  | The repository URL _(optional)_ |
 | `icon`  | A URL to an SVG or PNG image to be used as an icon _(optional)_ |
 | `appVersion`  | The version of the app that this contains _(optional)_ |
