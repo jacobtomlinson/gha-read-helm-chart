@@ -19,38 +19,38 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: Read Helm Chart
-      uses: jacobtomlinson/gha-read-helm-chart@master
-      with:
-        path: path/to/chart
+      - uses: actions/checkout@master
+      - name: Read Helm Chart
+        uses: jacobtomlinson/gha-read-helm-chart@master
+        with:
+          path: path/to/chart
 ```
 
 ### Inputs
 
-| Input                                             | Description                                        |
-|------------------------------------------------------|-----------------------------------------------|
-| `path`  | Path to the helm chart relative to the root of your project.    |
+| Input  | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `path` | Path to the helm chart relative to the root of your project. |
 
 ### Outputs
 
-| Output                                             | Description |
-|------------------------------------------------------|-----------------------------------------------|
-| `apiVersion`  | The chart API version _(always set)_ |
-| `name`  | The name of the chart _(always set)_ |
-| `version`  | A SemVer 2 version _(always set)_ |
-| `kubeVersion`  | A SemVer range of compatible Kubernetes versions _(optional)_ |
-| `description`  | A single-sentence description of this project _(optional)_ |
-| `type`  | It is the type of chart _(optional)_ |
-| `keywords`  | A list of keywords about this project _(optional)_ |
-| `home`  | The URL of this project's home page _(optional)_ |
-| `sources`  | A list of URLs to source code for this project _(optional)_ |
-| `depenencies.{name}.version`  | Version of dependency `{name}` _(optional)_ |
-| `depenencies.{name}.repository`  | Repository URL of dependency `{name}` _(optional)_ |
-| `repository`  | The repository URL _(optional)_ |
-| `icon`  | A URL to an SVG or PNG image to be used as an icon _(optional)_ |
-| `appVersion`  | The version of the app that this contains _(optional)_ |
-| `deprecated`  | Whether this chart is deprecated _(optional)_ |
+| Output                          | Description                                                     |
+| ------------------------------- | --------------------------------------------------------------- |
+| `apiVersion`                    | The chart API version _(always set)_                            |
+| `name`                          | The name of the chart _(always set)_                            |
+| `version`                       | A SemVer 2 version _(always set)_                               |
+| `kubeVersion`                   | A SemVer range of compatible Kubernetes versions _(optional)_   |
+| `description`                   | A single-sentence description of this project _(optional)_      |
+| `type`                          | It is the type of chart _(optional)_                            |
+| `keywords`                      | A list of keywords about this project _(optional)_              |
+| `home`                          | The URL of this project's home page _(optional)_                |
+| `sources`                       | A list of URLs to source code for this project _(optional)_     |
+| `depenencies_{name}_version`    | Version of dependency `{name}` _(optional)_                     |
+| `depenencies_{name}_repository` | Repository URL of dependency `{name}` _(optional)_              |
+| `repository`                    | The repository URL _(optional)_                                 |
+| `icon`                          | A URL to an SVG or PNG image to be used as an icon _(optional)_ |
+| `appVersion`                    | The version of the app that this contains _(optional)_          |
+| `deprecated`                    | Whether this chart is deprecated _(optional)_                   |
 
 ## Examples
 
