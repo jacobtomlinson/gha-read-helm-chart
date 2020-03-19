@@ -20,20 +20,20 @@ func check(e error) {
 }
 
 type Chart struct {
-	ApiVersion  string   `yaml:"apiVersion"`
-	Name        string   `yaml:"name"`
-	Version     string   `yaml:"version"`
-	KubeVersion string   `yaml:"kubeVersion"`
-	Description string   `yaml:"description"`
-	Type        string   `yaml:"type"`
-	Keywords    []string `yaml:"keywords"`
-	Home        string   `yaml:"home"`
-	Sources     []string `yaml:"sources"`
+	ApiVersion   string   `yaml:"apiVersion"`
+	Name         string   `yaml:"name"`
+	Version      string   `yaml:"version"`
+	KubeVersion  string   `yaml:"kubeVersion"`
+	Description  string   `yaml:"description"`
+	Type         string   `yaml:"type"`
+	Keywords     []string `yaml:"keywords"`
+	Home         string   `yaml:"home"`
+	Sources      []string `yaml:"sources"`
 	Dependencies []*Chart `yaml:"dependencies"`
-	Repository  string   `yaml:"repository"`
-	Icon        string   `yaml:"icon"`
-	AppVersion  string   `yaml:"appVersion"`
-	Deprecated  bool     `yaml:"deprecated"`
+	Repository   string   `yaml:"repository"`
+	Icon         string   `yaml:"icon"`
+	AppVersion   string   `yaml:"appVersion"`
+	Deprecated   bool     `yaml:"deprecated"`
 }
 
 func main() {
@@ -61,8 +61,8 @@ func main() {
 	fmt.Println(fmt.Sprintf(`::set-output name=appVersion::%s`, chart.AppVersion))
 	fmt.Println(fmt.Sprintf(`::set-output name=deprecated::%t`, chart.Deprecated))
 
-	for _, dep := range chart.Dependencies{
-		fmt.Println(fmt.Sprintf(`::set-output name=dependencies.%s.version::%s`, dep.Name, dep.Version))
-		fmt.Println(fmt.Sprintf(`::set-output name=dependencies.%s.repository::%s`, dep.Name, dep.Repository))
+	for _, dep := range chart.Dependencies {
+		fmt.Println(fmt.Sprintf(`::set-output name=dependencies_%s_version::%s`, dep.Name, dep.Version))
+		fmt.Println(fmt.Sprintf(`::set-output name=dependencies_%s_repository::%s`, dep.Name, dep.Repository))
 	}
 }

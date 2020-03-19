@@ -16,4 +16,4 @@ jobs:
           test "${{ steps.selftest.outputs.apiVersion }}" == "v1"
           test "${{ steps.selftest.outputs.version }}" == "0.1.0"
           test "${{ steps.selftest.outputs.icon }}" == ""
-          test "${{ steps.selftest.outputs.dependencies.example-dep.version }}" == "0.2.0"
+          test "${{ steps.selftest.outputs.dependencies_example-dep_version }}" == "0.2.0"
